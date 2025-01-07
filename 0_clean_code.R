@@ -37,6 +37,7 @@ blood_liqid_makers = c("胆固醇", "甘油三脂",  "高密度脂蛋白", "低�
 inflammation_makers = c("C-反应蛋白", "高敏C-反应蛋白", "血沉", "血沉方程K 值", "降钙素")
 blood_biomakers = all_of(c(liver_makers, kidney_makers, blood_liqid_makers, inflammation_makers))
 
+
 #* 所有变量数值化 ----
 dt_blood_biomakers = dt[,..blood_biomakers][
   , paste0(blood_biomakers) := lapply(.SD, function(x) {gsub("[^0-9]", "", x)}), .SDcols = blood_biomakers][
